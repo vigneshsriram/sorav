@@ -29,6 +29,3 @@ function selectCity(state,city){
 
 }
 
-function searchRestaurant(state, city, cuisine){
-
-}
