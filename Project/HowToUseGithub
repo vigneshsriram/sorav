@@ -11,3 +11,8 @@
   
   #this will push all your changes to github
 4) git push
+
+
+git stash
+git pull
+git stash pop
