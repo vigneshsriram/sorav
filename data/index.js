@@ -1,6 +1,7 @@
-const postData = require("./recipes");
-//const userData = require("./users");
+
+const recipeData = require("./recipes");
+
 
 module.exports = {
-  recipes: postData
+ recipes: recipeData
 };
