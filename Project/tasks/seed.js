@@ -1,14 +1,12 @@
-const dbConnection = require("./config/mongoConnection");
-const data = require("./data/");
+const dbConnection = require("../config/mongoConnection");
+const data = require("../data/");
 const users = data.users;
 const recipes = data.recipes;
 
 async function main() {
   const db = await dbConnection();
   await db.dropDatabase();
-
-  //NEW JERSEY DATABASE
-  var obj =new Object();
+  var obj = new Object();
   var name = "Chef Of India";
   obj.name = name
   obj.description = "Homey, storefront nook with late hours preparing North & South Indian staples to eat in or take out"
@@ -28,7 +26,7 @@ async function main() {
   review.rating = "4"
   var reviews = []
   reviews = review
-  await recipes.addPost(name, obj,reviews);
+  await recipes.addrecipe(name, obj,reviews);
   
   var name = "King Szechuan Palace";
   obj.name = name
@@ -45,7 +43,7 @@ async function main() {
   review.comment = "Super nice. Tasty but not expensive. Very good."
   review.rating = "4"
   reviews = review
-  await recipes.addPost(name, obj,reviews);
+  await recipes.addrecipe(name, obj,reviews);
   
   var name = "Amici Milano";
   obj.name = name
@@ -62,7 +60,7 @@ async function main() {
   review.comment = "Great place. The owner and staff make you feel welcomed. Excellent tapas and Dominican style cuisine. Save room for dessert."
   review.rating = "4"
   reviews = review
-  await recipes.addPost(name, obj,reviews);
+  await recipes.addrecipe(name, obj,reviews);
   
   var name = "QDOBA Mexican Eats";
   obj.name = name
@@ -79,7 +77,7 @@ async function main() {
   review.comment = "First time at Princeton Qdoba. I really liked the taste of food here"
   review.rating = "4"
   reviews = review
-  await recipes.addPost(name, obj,reviews);
+  await recipes.addrecipe(name, obj,reviews);
   
   var name = "Route 1 Diner Restaurant";
   obj.name = name
@@ -96,103 +94,10 @@ async function main() {
   review.comment = "Some of the best. High quality. Diner food I ever had in New Jersey. A must go place when driving through town"
   review.rating = "5"
   reviews = review
-  await recipes.addPost(name, obj,reviews);
+  await recipes.addrecipe(name, obj,reviews);
   
 
-
-  //MASSACHUSETTS DATABASE
-  var name = "Yume Wo Katare ";
-  obj.name = name
-  obj.description = "Famous Ramen Noodles"
-  obj.state = "Massachusetts"
-  obj.city = "Cambridge"
-  obj.location = "1923 Massachusetts Ave"
-  obj.cuisine = ["Chinese"]
-  obj.timing = "11am to 10pm"
-  obj.contact = "617-714-4008"
-  var posterinfo = new Object();
-  posterinfo.name="Claire H."
-  //posterinfo.id = 212312
-  var review = new Object();
-  //review.revid = 123
-  review.poster = posterinfo 
-  review.comment = "The ramen is huge and i hope they can come up with a more sustainable way not to waste a large amount of food everyday."
-  review.rating = "3"
-  var reviews = []
-  reviews = review
-  await recipes.addPost(name, obj,reviews);
-  
-  var name = "Highland Kitchen";
-  obj.name = name
-  obj.description = "A regular haunt of practically everyone who has ever lived in Somerville's Spring Hill or Union Square"
-  obj.state = "Massachusetts"
-  obj.city = "Somerville"
-  obj.location = "150 Highland Ave"
-  obj.cuisine = ["American"]
-  obj.timing = "11am to 1am"
-  obj.contact = "617-625-1131"
-  var posterinfo = new Object();
-  posterinfo.name="Carlos F."
-  review.poster = posterinfo 
-  review.comment = "I always enjoy the food at highland kitchen. They have a creative menu and a friendly staff. I have never left disappointed. They're coconut curry dishes are amazing"
-  review.rating = "5"
-  reviews = review
-  await recipes.addPost(name, obj,reviews);
-  
-  var name = "Giacomo’s Ristorante ";
-  obj.name = name
-  obj.description = "Best Italian Meal outside of Italy!"
-  obj.state = "Massachusetts"
-  obj.city = "Boston"
-  obj.location = "355 Hanover St"
-  obj.cuisine = ["Italian"]
-  obj.timing = "4:30pm to 10:00pm"
-  obj.contact = "617-523-9026"
-  var posterinfo = new Object();
-  posterinfo.name="Fletcher D."
-  review.poster = posterinfo 
-  review.comment = "Worth the wait. Very small inside, doesn't seat many, but that's part of the charm and they do move people in and out pretty quickly. Can't remember the name of my dish, it was on the special menu, it was delicious but I don't think it matters what you order, all 4 of our meals were excellent."
-  review.rating = "4"
-  reviews = review
-  await recipes.addPost(name, obj,reviews);
-  
-  var name = "Taqueria Jalisco";
-  obj.name = name
-  obj.description = "Free chips with homemade salsa!"
-  obj.state = "Massachusetts"
-  obj.city = "Boston"
-  obj.location = "291 Bennington St"
-  obj.cuisine = ["Mexican"]
-  obj.timing = "10am to 10pm"
-  obj.contact = "617-567-6367"
-  var posterinfo = new Object();
-  posterinfo.name="Delaware"
-  review.poster = posterinfo 
-  review.comment = "Burrito mojado with pork carnitas and nachos con carne with beef also excellent."
-  review.rating = "5"
-  reviews = review
-  await recipes.addPost(name, obj,reviews);
-  
-  var name = "urya Indian Kitchen";
-  obj.name = name
-  obj.description = "Great takeout spot, provides delivery, and a few spots for dining"
-  obj.state = "Massachusetts"
-  obj.city = "Cambridge"
-  obj.location = "114 Magazine St"
-  obj.cuisine = ["Indian"]
-  obj.timing = "11:15am to 10pm"
-  obj.contact = "617-945-5489"
-  var posterinfo = new Object();
-  posterinfo.name="Karen"
-  review.poster = posterinfo 
-  review.comment = "Delicious, flavorful Butter Chicken, Naan, Riata and Rice Pudding!  I had it delivered and it was quick!"
-  review.rating = "5"
-  reviews = review
-  await recipes.addPost(name, obj,reviews);
-
-
-
-  //NEWYORK DATABASE
+    
   var name = "Dos Caminos";
   obj.name = name
   obj.description = "Vibrant cantina serving modern Mexican cuisine, made-to-order guacamole & tequila cocktails"
@@ -279,10 +184,97 @@ async function main() {
   await recipes.addrecipe(name, obj,reviews);
 
 
+  var name = "Yume Wo Katare ";
+  obj.name = name
+  obj.description = "Famous Ramen Noodles"
+  obj.state = "Massachusetts"
+  obj.city = "Cambridge"
+  obj.location = "1923 Massachusetts Ave"
+  obj.cuisine = ["Chinese"]
+  obj.timing = "11am to 10pm"
+  obj.contact = "617-714-4008"
+  var posterinfo = new Object();
+  posterinfo.name="Claire H."
+  //posterinfo.id = 212312
+  var review = new Object();
+  //review.revid = 123
+  review.poster = posterinfo 
+  review.comment = "The ramen is huge and i hope they can come up with a more sustainable way not to waste a large amount of food everyday."
+  review.rating = "3"
+  var reviews = []
+  reviews = review
+  await recipes.addrecipe(name, obj,reviews);
+  
+  var name = "Highland Kitchen";
+  obj.name = name
+  obj.description = "A regular haunt of practically everyone who has ever lived in Somerville's Spring Hill or Union Square"
+  obj.state = "Massachusetts"
+  obj.city = "Somerville"
+  obj.location = "150 Highland Ave"
+  obj.cuisine = ["American"]
+  obj.timing = "11am to 1am"
+  obj.contact = "617-625-1131"
+  var posterinfo = new Object();
+  posterinfo.name="Carlos F."
+  review.poster = posterinfo 
+  review.comment = "I always enjoy the food at highland kitchen. They have a creative menu and a friendly staff. I have never left disappointed. They're coconut curry dishes are amazing"
+  review.rating = "5"
+  reviews = review
+  await recipes.addrecipe(name, obj,reviews);
+  
+  var name = "Giacomo’s Ristorante ";
+  obj.name = name
+  obj.description = "Best Italian Meal outside of Italy!"
+  obj.state = "Massachusetts"
+  obj.city = "Boston"
+  obj.location = "355 Hanover St"
+  obj.cuisine = ["Italian"]
+  obj.timing = "4:30pm to 10:00pm"
+  obj.contact = "617-523-9026"
+  var posterinfo = new Object();
+  posterinfo.name="Fletcher D."
+  review.poster = posterinfo 
+  review.comment = "Worth the wait. Very small inside, doesn't seat many, but that's part of the charm and they do move people in and out pretty quickly. Can't remember the name of my dish, it was on the special menu, it was delicious but I don't think it matters what you order, all 4 of our meals were excellent."
+  review.rating = "4"
+  reviews = review
+  await recipes.addrecipe(name, obj,reviews);
+  
+  var name = "Taqueria Jalisco";
+  obj.name = name
+  obj.description = "Free chips with homemade salsa!"
+  obj.state = "Massachusetts"
+  obj.city = "Boston"
+  obj.location = "291 Bennington St"
+  obj.cuisine = ["Mexican"]
+  obj.timing = "10am to 10pm"
+  obj.contact = "617-567-6367"
+  var posterinfo = new Object();
+  posterinfo.name="Delaware"
+  review.poster = posterinfo 
+  review.comment = "Burrito mojado with pork carnitas and nachos con carne with beef also excellent."
+  review.rating = "5"
+  reviews = review
+  await recipes.addrecipe(name, obj,reviews);
+  
+  var name = "urya Indian Kitchen";
+  obj.name = name
+  obj.description = "Great takeout spot, provides delivery, and a few spots for dining"
+  obj.state = "Massachusetts"
+  obj.city = "Cambridge"
+  obj.location = "114 Magazine St"
+  obj.cuisine = ["Indian"]
+  obj.timing = "11:15am to 10pm"
+  obj.contact = "617-945-5489"
+  var posterinfo = new Object();
+  posterinfo.name="Karen"
+  review.poster = posterinfo 
+  review.comment = "Delicious, flavorful Butter Chicken, Naan, Riata and Rice Pudding!  I had it delivered and it was quick!"
+  review.rating = "5"
+  reviews = review
+  await recipes.addrecipe(name, obj,reviews);
 
 
-//FLORIDA DATABASE
-var name = "Blue Heaven";
+  var name = "Blue Heaven";
 obj.name = name
 obj.description = "Iconic landmark for Floridian-Caribbean cuisine & key lime pie, with a funky setting."
 obj.state = "Florida"
@@ -297,7 +289,7 @@ review.poster = posterinfo
 review.comment = "Kick back in the shady courtyard for breakfast with the roosters. Try the Shrimp and Grits or Lobster Benedict"
 review.rating = "4.5"
 reviews = review
-await recipes.addPost(name, obj,reviews);
+await recipes.addrecipe(name, obj,reviews);
 
 var name = "Columbia Restaurant";
 obj.name = name
@@ -314,7 +306,7 @@ review.poster = posterinfo
 review.comment = "It is a great place to go. You can go over and over again and not get tierd of it. Dont forget to see the Flamingo dance show."
 review.rating = "5"
 reviews = review
-await recipes.addPost(name, obj,reviews);
+await recipes.addrecipe(name, obj,reviews);
 
 var name = "Farmer's Market Restaurant";
 obj.name = name
@@ -331,7 +323,7 @@ review.poster = posterinfo
 review.comment = "Nice staff and also good parking for big rigs"
 review.rating = "3"
 reviews = review
-await recipes.addPost(name, obj,reviews);
+await recipes.addrecipe(name, obj,reviews);
 
 
 var name = "Sonny's BBQ";
@@ -349,7 +341,7 @@ review.poster = posterinfo
 review.comment = "No delivery but they do have a drive up."
 review.rating = "1"
 reviews = review
-await recipes.addPost(name, obj,reviews);
+await recipes.addrecipe(name, obj,reviews);
 
 
 var name = "Taqueria Morelia";
@@ -367,7 +359,7 @@ review.poster = posterinfo
 review.comment = "Reasonable price and great taste."
 review.rating = "3"
 reviews = review
-await recipes.addPost(name, obj,reviews);
+await recipes.addrecipe(name, obj,reviews);
 
   console.log("Done seeding database");
   //await db.close();

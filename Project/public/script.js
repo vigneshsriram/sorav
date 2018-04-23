@@ -6,12 +6,12 @@ function selectCity(state,city){
 
     if(state.value == "New York"){
 		var optionArray = ["|","New York City|New York City","Buffalo|Buffalo","Syracuse|Syracuse"];
-	} else if(state.value == "NEW JERSEY"){
+	} else if(state.value == "New Jersey"){
 		var optionArray = ["|","Lawrenceville|Lawrenceville","Princeton|Princeton","Trenton|Trenton","Jersey city|Jersey city"];
-	} else if(state.value == "MASSACHUSETTS"){
+	} else if(state.value == "Massachussets"){
 		var optionArray = ["|","Cambridge|Cambridge","Boston|Boston", "Somerville|Somerville"];
     }
-    else if(state.value == "FLORIDA"){
+    else if(state.value == "Florida"){
 		var optionArray = ["|","Florida City|Florida City","Tampa|Tampa", "Key West|Key West"];
     }
     else if(state.value == "5th state"){
