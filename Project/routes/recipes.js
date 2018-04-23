@@ -14,10 +14,17 @@ const recipeData = data.recipes;
 //   }
 // });
 
-
 router.get("/", async (req, res) => {
+  res.render("restaurant/login")
+});
+
+router.post("/restaurantfilter", async (req, res) => {
+  res.render("restaurant/restaurant_filter",{})
+});
+router.get("/restaurantfilter", async (req, res) => {
     res.render("restaurant/restaurant_filter")
 });
+
 router.get("/restaurant/:id", async (req, res) => {
   console.log(req.params.id)
    var onerest =  await recipeData.getrestaurantbyid(req.params.id);

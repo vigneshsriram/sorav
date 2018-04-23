@@ -10,27 +10,32 @@ const uuid = require("node-uuid");
 
 let exportedMethods = {
 
- async getrestaurants(state,city) {
+  async getrestaurants(state,city,cuisineArray) {
     const recipeCollection = await recipes();
     const restaurantall = await recipeCollection.find({}).toArray();
     var correct = [];
     for(var i=0;i<restaurantall.length;i++)
     {
      // console.log(restaurantall[i].obj.state, state)
-       if( restaurantall[i].obj.state == state && restaurantall[i].obj.city == city)
-
+     if(cuisineArray.length == 5)
+     {
+       if( restaurantall[i].obj.state == state && restaurantall[i].obj.city == city  )
        {
-         for(var j=0; j< restaurantall[i].obj.cuisine.length;j++)
-          {if(restaurantall[i].obj.cuisine[j].length!=0 && restaurantall[i].obj.cuisine[j] == cuisine )
-         {
+         
            correct[i] = restaurantall[i];
-           j++;
-         }
-         else{
-          correct[i] = restaurantall[i];
-         }
-        }
        } 
+      }
+      else 
+      {
+        for(var k = 0; k<restaurantall[i].obj.cuisine.length; k++)
+        {
+        if( restaurantall[i].obj.state == state && restaurantall[i].obj.city == city && restaurantall[i].obj.cuisine[k] == cuisineArray[0] )
+        {
+          
+            correct[i] = restaurantall[i];
+        } 
+      }
+      }
     }
 
    return correct;
