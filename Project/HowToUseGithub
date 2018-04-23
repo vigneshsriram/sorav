@@ -1,0 +1,13 @@
+1) Git clone your project path using the command 
+  git clone URL
+  
+  After making changes
+  
+  #add the filenames in which you have made changes
+2) git add filename
+
+  #type a test message
+3) git commit -m "this is a test message"
+  
+  #this will push all your changes to github
+4) git push
