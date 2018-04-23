@@ -45,7 +45,7 @@ router.post("/restaurantlist", async (req, res) => {
 		alert("enter city")
 		return;
 	}
-
+var a= 44;
 	var cuisineArray = [];
 	if(cuisine == ""){
 		cuisineArray = ["Indian", "American", "Mexican", "Italian", "Chinese"]
