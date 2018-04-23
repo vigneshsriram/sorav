@@ -17,10 +17,19 @@ let exportedMethods = {
     for(var i=0;i<restaurantall.length;i++)
     {
      // console.log(restaurantall[i].obj.state, state)
-       if( restaurantall[i].obj.state == state && restaurantall[i].obj.city == city  )
+       if( restaurantall[i].obj.state == state && restaurantall[i].obj.city == city)
+
        {
-         
+         for(var j=0; j< restaurantall[i].obj.cuisine.length;j++)
+          {if(restaurantall[i].obj.cuisine[j].length!=0 && restaurantall[i].obj.cuisine[j] == cuisine )
+         {
            correct[i] = restaurantall[i];
+           j++;
+         }
+         else{
+          correct[i] = restaurantall[i];
+         }
+        }
        } 
     }
 
