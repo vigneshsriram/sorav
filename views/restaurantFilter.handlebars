@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Restaurant Filter</title>
+        
+    </head>
+    <body>
+        
+        <div id= "container">
+            <form method="post" action="/review">
+            <h1>Find the best restaurants, bars and cafes in US</h1>
+            <hr>
+            <h4>State : </h4>
+            <select id = "state" name = "state" onchange="selectCity('state','city')">
+                <option value=""></option>
+                <option value="New York">New York</option>
+                <option value="NEW JERSEY">NEW JERSEY</option>
+                <option value="MASSACHUSETTS">MASSACHUSETTS</option>
+                <option value="FLORIDA">FLORIDA</option>
+                <option value="5th state">5th state</option>
+            </select>
+
+            <hr>
+            <h4>City : </h4>
+            <select id= "city" name="city">
+                <option value=""></option>
+            </select>
+            <hr>
+            <h4>Cuisine : </h4>
+            <select id = "cuisine" name = "cuisine" >
+                <option value=""></option>
+                <option value="Indian">Indian</option>
+                <option value="American">American</option>
+                <option value="Italian">Italian</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Chinese">Chinese</option>
+            </select>
+
+            <hr>
+
+            <button id="goButton" > GO! </button>
+        </form>
+        </div>
+        <script  src="public/script.js"></script>
+    </body>
+</html>
