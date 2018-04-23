@@ -63,7 +63,8 @@ router.post("/restaurantlist", async (req, res) => {
     console.log("this is the value of the cuisine  " + city);
     console.log("this is the value of the cuisine  " + cuisine);
    
-   var arrrest = await recipeData.getrestaurants(state,city);
+    var arrrest = await recipeData.getrestaurants(state,city,cuisineArray);
+    
    res.render("restaurant/restaurant_list",{rests:arrrest});
 
       
