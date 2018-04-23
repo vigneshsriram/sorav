@@ -15,7 +15,6 @@ const recipeData = data.recipes;
 // });
 
 
-var a=43;
 router.get("/", async (req, res) => {
     res.render("restaurant/restaurant_filter")
 });
