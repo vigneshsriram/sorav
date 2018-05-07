@@ -1,0 +1,89 @@
+
+{{!-- <h1>ONE REST</h1> --}}
+<h1>{{restone.name}}</h1>
+<p>{{restone.obj.state}}</p>
+<p>{{restone.obj.city}}</p>
+<p>{{restone._id}}</p>
+{{!-- <p>{{{name}}}</p> --}}
+<div id="map">
+       
+     </div>
+     
+ 
+<div>
+    <form id="form-group" method="POST" action="/restaurant/{{restone._id}}">
+    <label>ENTER COMMENT</label>
+     <input type="text" name="comment" id="comment" placeholder="enter comment">
+     <button id="addcomment">ADD</button>
+
+     </form>
+</div>
+<div>
+   {{!-- {{#each restone.reviews}}
+   <p>{{comment}}</p>
+   {{/each}} --}}
+   <div id="addreviews">
+       {{#each restone.reviews}}
+   
+       <p id="userdetail">{{user}}</p>
+        <p>{{comment}}</p>
+
+        
+   {{/each}}
+   </div>
+ </div>
+
+{{!-- <div>
+    <img src="{{{restone.obj.imgpath}}}">   
+</div> --}}
+ <a href="/userprofile">User Profile</a>
+<script>
+          function initMap()
+ {
+   
+ //  console.log(latit,longit)
+    //   console.log("NINIT");
+  var options ={
+    zoom: 16,
+center: {
+  lat: {{{latit}}},
+  lng:  {{{longit}}}
+}
+}
+{{!-- var markerIcon = {
+  url: 'http://image.flaticon.com/icons/svg/252/252025.svg',
+  scaledSize: new google.maps.Size(80, 80),
+  origin: new google.maps.Point(0, 0),
+  anchor: new google.maps.Point(32,65),
+  labelOrigin: new google.maps.Point(40,33)
+}; --}}
+
+var map = new google.maps.Map(document.getElementById('map'),options);
+    var marker = new google.maps.Marker({
+    position: {
+  lat: {{latit}},
+  lng:  {{longit}}
+},
+    map: map,
+    title: '{{{restone.name}}}',
+    //icon: markerIcon,
+  {{!-- label: {
+    text: 'Go',
+    color: "#eb3a44",
+    fontSize: "16px",
+    fontWeight: "bold"
+  } --}}
+   //label: ''
+  });
+
+}
+ 
+   
+
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8tp7SYlxrdXnen7AWbLplRE39wTRqn7A&callback=initMap">
+    </script>
+   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+<script  src="/public/review.js"></script>
