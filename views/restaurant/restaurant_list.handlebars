@@ -1,0 +1,17 @@
+<h1> LIST OF RESTS</h1>
+<div>
+     {{#each rests}}  
+    <article class="post">
+      <h2><a href="/restaurant/{{_id}}">{{name}} </a>  {{obj.rating}}</h2>
+      <p>{{{obj.description}}}</p>
+           {{#each obj.cuisine}}
+                {{this}}
+            {{/each}}    
+                <p>{{obj.state}} , {{obj.city}}</p>
+  
+  
+      
+    </article>
+  {{/each}}
+</div>
+<a href="/userprofile">User Profile</a>

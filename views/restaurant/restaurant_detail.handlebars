@@ -1,0 +1,92 @@
+
+{{!-- <h1>ONE REST</h1> --}}
+<h1>{{restone.name}}  {{restone.obj.rating}}</h1>
+<h3>{{restone.obj.description}}</h3>
+<p>{{restone.obj.state}}  {{restone.obj.city}}</p>
+<p>{{restone.obj.location}}</p>
+<hr>
+{{#each restone.obj.timing}}
+ <p>{{this}}</p>
+ {{/each}}
+
+{{#each restone.obj.cuisine}}
+      {{this}}
+            {{/each}} 
+{{!-- <p>{{{name}}}</p> --}}
+<div id="map">
+       
+     </div>
+     
+ 
+<div>
+    <form id="form-group" method="POST" action="/restaurant/{{restone._id}}">
+    <label>ENTER COMMENT</label><br>
+     <input type="text" name="comment" id="comment" placeholder="enter comment">
+     <br>
+     <label>Enter rating</label>
+     <select id = "rating" name = "rating" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+     <button id="addcomment">ADD</button>
+
+     </form>
+</div>
+<div>
+   
+   <div id="addreviews">
+       {{#each restone.reviews}}
+   
+       <p id="userdetail">{{user}} {{rating}}</p>
+        <p>{{comment}}</p>
+
+        
+   {{/each}}
+   </div>
+ </div>
+
+ <a href="/userprofile">User Profile</a>
+<script>
+
+ function initMap()
+ {
+ 
+  var options ={
+    zoom: 16,
+center: {
+  lat: {{{latit}}},
+  lng:  {{{longit}}}
+}
+}
+
+var map = new google.maps.Map(document.getElementById('map'),options);
+    var marker = new google.maps.Marker({
+    position: {
+  lat: {{latit}},
+  lng:  {{longit}}
+},
+    map: map,
+   // title: '{{{restone.name}}}',
+    //icon: markerIcon,
+
+   //label: ''
+  });
+
+}
+ 
+   
+
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8tp7SYlxrdXnen7AWbLplRE39wTRqn7A&callback=initMap">
+    </script>
+   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+      <script>
+          var something =  "{{{userauth.profile.firstname}}}  {{{userauth.profile.lastname}}}"
+      </script>  
+ <script  src="/public/review.js"></script>
