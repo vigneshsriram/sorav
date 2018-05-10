@@ -1,0 +1,58 @@
+
+<div class="header">
+
+   
+        
+            <a href="/restaurantfilter" class="logo"><img alt="logo" src="/public/pics/logo1.png" class="logo1"></a>
+            
+   <div class="dropdown">
+  <button class="dropbtn">{{{userauth.profile.firstname}}}</button>
+  <div class="dropdown-content">
+    <a href="/changepassword">Change Password</a>
+    <a href="/logout">Logout</a>
+  </div>
+
+    </div>
+   
+    <div class="header-right">
+    <a class="home" href="/restaurantfilter"><img alt="logo" src="/public/pics/home.png" class="home1"></a>
+   
+
+
+ </div>
+
+
+</div>
+
+<div id= "container">
+            <form method="post" action="/restaurantlist">
+            <h1>Find the best restaurants, bars and cafes in the US!</h1>
+            
+            <h4>State : </h4>  
+            <select id = "state" class="dropdown1" name = "state" onchange="selectCity('state','city')">
+                <option value=""></option>
+                <option value="New York">New York</option>
+                <option value="New Jersey">New Jersey</option>
+            </select>
+            
+            <h4>City : </h4>
+            <select id= "city" class="dropdown1" name="city">
+                <option value=""></option>
+            </select>
+            
+            <h4>Cuisine : </h4>
+            <select id = "cuisine" class="dropdown1" name = "cuisine" >
+                <option value=""></option>
+                <option value="Indian">Indian</option>
+                <option value="American">American</option>
+                <option value="Italian">Italian</option>
+                <option value="Chinese">Chinese</option>
+            </select>
+
+            
+            <br><br>
+            <button id="goButton" onclick="gohere()"> Search </button>
+        </form>
+        </div>
+        <p>{{{message}}}</p>
+
